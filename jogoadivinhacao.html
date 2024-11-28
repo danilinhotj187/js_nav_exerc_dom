@@ -4,13 +4,84 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jogo de Adivinhação</title>
+    <style>
+      body {
+            background-color: aqua;
+            font-family: cursive;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            font-size: 50px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .itens {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: cursive;
+        }
+
+        /* Estilizando a caixa de texto (input) */
+        #userGuess {
+            padding: 10px;
+            width: 150px;
+            margin: 10px 0;
+            border: 2px solid black;
+            border-radius: 50px;
+            font-size: 18px;
+        }
+
+        /* Estilizando o botão */
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: aquamarine;
+            color: black;
+            border: 2px solid;
+            border-color: black;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: blue;
+        }
+
+        button:focus {
+            outline: none;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Estilizando a mensagem de resultado */
+        #result {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
     <h1>Jogo de Adivinhação</h1>
+
+    <div class="itens">
     <p>Escolha um número entre 1 e 10:</p>
     <input type="number" id="userGuess" min="1" max="10" />
     <button onclick="playGame()">Adivinhar</button>
-    <p id="result"></p>
+    <p id="result"></p></div>
 
     <script>
         function playGame() {
