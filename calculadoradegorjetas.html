@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Gorjeta</title>
+</head>
+<body>
+    <h1>Calculadora de Gorjeta</h1>
+    <p>Digite o valor da conta:</p>
+    <input type="number" id="valorConta" placeholder="Ex: 100" step="0.01" min="0" />
+    
+    <p>Selecione o nível de satisfação:</p>
+    <select id="satisfacao">
+        <option value="10">Bom (10%)</option>
+        <option value="15">Ótimo (15%)</option>
+        <option value="20">Excelente (20%)</option>
+    </select>
+
+    <button onclick="calcularGorjeta()">Calcular Gorjeta</button>
+    <p id="resultado"></p>
+
+    <script>
+        function calcularGorjeta() {
+            // Obtendo os valores de entrada
+            const valorConta = parseFloat(document.getElementById('valorConta').value);
+            const satisfacao = parseInt(document.getElementById('satisfacao').value);
+
+            // Verifica se o valor da conta é válido
+            if (isNaN(valorConta) || valorConta <= 0) {
+                document.getElementById('resultado').innerText = "Por favor, insira um valor de conta válido.";
+                return;
+            }
+
+            // Calculando a gorjeta
+            const gorjeta = (valorConta * satisfacao) / 100;
+            const total = valorConta + gorjeta;
+
+            // Exibindo o resultado
+            document.getElementById('resultado').innerText = 
+                `Gorjeta: R$ ${gorjeta.toFixed(2)} - Total a pagar: R$ ${total.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>

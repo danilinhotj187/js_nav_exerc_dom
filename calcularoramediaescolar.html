@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Média Escolar</title>
+</head>
+<body>
+    <h1>Calculadora de Média Escolar</h1>
+    <p>Insira as notas das quatro provas:</p>
+    <input type="number" id="prova1" placeholder="Prova 1" step="0.1" min="0" max="10" />
+    <input type="number" id="prova2" placeholder="Prova 2" step="0.1" min="0" max="10" />
+    <input type="number" id="prova3" placeholder="Prova 3" step="0.1" min="0" max="10" />
+    <input type="number" id="prova4" placeholder="Prova 4" step="0.1" min="0" max="10" />
+    <button onclick="calcularMedia()">Calcular Média</button>
+    <p id="resultado"></p>
+
+    <script>
+        function calcularMedia() {
+            // Obtendo as notas das provas
+            const nota1 = parseFloat(document.getElementById('prova1').value);
+            const nota2 = parseFloat(document.getElementById('prova2').value);
+            const nota3 = parseFloat(document.getElementById('prova3').value);
+            const nota4 = parseFloat(document.getElementById('prova4').value);
+
+            // Verifica se todas as notas estão no intervalo permitido
+            if ([nota1, nota2, nota3, nota4].some(nota => isNaN(nota) || nota < 0 || nota > 10)) {
+                document.getElementById('resultado').innerText = "Por favor, insira notas válidas entre 0 e 10.";
+                return;
+            }
+
+            // Calculando a média
+            const media = (nota1 + nota2 + nota3 + nota4) / 4;
+
+            // Determinando o resultado
+            let mensagem;
+            if (media >= 7) {
+                mensagem = "Aprovado!";
+            } else if (media >= 5) {
+                mensagem = "Recuperação.";
+            } else {
+                mensagem = "Reprovado.";
+            }
+
+            // Exibindo o resultado
+            document.getElementById('resultado').innerText = `Média: ${media.toFixed(2)} - ${mensagem}`;
+        }
+    </script>
+</body>
+</html>

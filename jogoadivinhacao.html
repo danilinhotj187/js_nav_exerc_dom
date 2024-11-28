@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de Adivinhação</title>
+</head>
+<body>
+    <h1>Jogo de Adivinhação</h1>
+    <p>Escolha um número entre 1 e 10:</p>
+    <input type="number" id="userGuess" min="1" max="10" />
+    <button onclick="playGame()">Adivinhar</button>
+    <p id="result"></p>
+
+    <script>
+        function playGame() {
+            const userGuess = parseInt(document.getElementById('userGuess').value);
+            const randomNumber = Math.floor(Math.random() * 10) + 1;
+
+            if (userGuess === randomNumber) {
+                document.getElementById('result').innerText = "Parabéns, você acertou!";
+            } else {
+                document.getElementById('result').innerText = `Tente novamente! O número era ${randomNumber}.`;
+            }
+        }
+    </script>
+</body>
+</html>
