@@ -4,6 +4,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora de Média Escolar</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: cursive;
+            background-color: aqua;
+            
+        }
+
+        h1{
+            font-family: cursive;
+            font-size: 50px;
+            font-weight: bold;
+        }
+
+        p{
+            font-family: cursive;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        input {
+            padding: 10px;
+            width: 150px;
+            margin: 10px 0;
+            border: 2px solid black;
+            border-radius: 50px;
+            font-size: 18px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: aquamarine;
+            color: black;
+            border: 2px solid;
+            border-color: black;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: blue;
+        }
+
+        button:focus {
+            outline: none;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Estilizando a mensagem de resultado */
+        #result {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+
+    </style>
 </head>
 <body>
     <h1>Calculadora de Média Escolar</h1>
@@ -13,7 +74,7 @@
     <input type="number" id="prova3" placeholder="Prova 3" step="0.1" min="0" max="10" />
     <input type="number" id="prova4" placeholder="Prova 4" step="0.1" min="0" max="10" />
     <button onclick="calcularMedia()">Calcular Média</button>
-    <p id="resultado"></p>
+    <p id="result"></p>
 
     <script>
         function calcularMedia() {
@@ -25,7 +86,7 @@
 
             // Verifica se todas as notas estão no intervalo permitido
             if ([nota1, nota2, nota3, nota4].some(nota => isNaN(nota) || nota < 0 || nota > 10)) {
-                document.getElementById('resultado').innerText = "Por favor, insira notas válidas entre 0 e 10.";
+                document.getElementById('result').innerText = "Por favor, insira notas válidas entre 0 e 10.";
                 return;
             }
 
@@ -43,7 +104,7 @@
             }
 
             // Exibindo o resultado
-            document.getElementById('resultado').innerText = `Média: ${media.toFixed(2)} - ${mensagem}`;
+            document.getElementById('result').innerText = `Média: ${media.toFixed(2)} - ${mensagem}`;
         }
     </script>
 </body>
