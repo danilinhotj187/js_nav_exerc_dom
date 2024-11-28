@@ -4,6 +4,79 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora de Gorjeta</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: cursive;
+            background-color: aqua;
+            
+        }
+
+        h1{
+            font-family: cursive;
+            font-size: 50px;
+            font-weight: bold;
+        }
+
+        p{
+            font-family: cursive;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        input {
+            padding: 10px;
+            width: 150px;
+            margin: 10px 0;
+            border: 2px solid black;
+            border-radius: 50px;
+            font-size: 18px;
+        }
+
+        ::placeholder {
+            font-family: cursive;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: aquamarine;
+            color: black;
+            border: 2px solid;
+            border-color: black;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: blue;
+        }
+
+        button:focus {
+            outline: none;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Estilizando a mensagem de resultado */
+        #result {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        #satisfacao {
+            padding: 10px;
+            width: 170px;
+            margin: 10px 0;
+            border: 2px solid black;
+            border-radius: 5px;
+            font-size: 16px;
+            font-family: cursive;
+        }
+    </style>
 </head>
 <body>
     <h1>Calculadora de Gorjeta</h1>
@@ -18,7 +91,7 @@
     </select>
 
     <button onclick="calcularGorjeta()">Calcular Gorjeta</button>
-    <p id="resultado"></p>
+    <p id="result"></p>
 
     <script>
         function calcularGorjeta() {
@@ -28,7 +101,7 @@
 
             // Verifica se o valor da conta é válido
             if (isNaN(valorConta) || valorConta <= 0) {
-                document.getElementById('resultado').innerText = "Por favor, insira um valor de conta válido.";
+                document.getElementById('result').innerText = "Por favor, insira um valor de conta válido.";
                 return;
             }
 
@@ -37,7 +110,7 @@
             const total = valorConta + gorjeta;
 
             // Exibindo o resultado
-            document.getElementById('resultado').innerText = 
+            document.getElementById('result').innerText = 
                 `Gorjeta: R$ ${gorjeta.toFixed(2)} - Total a pagar: R$ ${total.toFixed(2)}`;
         }
     </script>
